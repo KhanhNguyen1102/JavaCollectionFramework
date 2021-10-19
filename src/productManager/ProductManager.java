@@ -82,6 +82,7 @@ public class ProductManager {
     public void sortMaxtoMin(){
         productList.sort((o1, o2) -> Double.compare(o2.getPrice(), o1.getPrice()));
     }
+
     public static void main(String[] args) {
         ProductManager productArrayList = new ProductManager();
         int choice = -1;
@@ -172,4 +173,7 @@ public class ProductManager {
             }
         }
     }
+//    public static Product createProduct(){
+//
+//    }
 }
