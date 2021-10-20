@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         ManagerServiceStudent studentList = new ManagerServiceStudent();
 
-        int choice;
+        int choice = -1;
         Scanner input = new Scanner(System.in);
         while (true) {
             System.out.println("Menu");
@@ -24,12 +24,14 @@ public class Main {
             System.out.println("0. Exit ");
             System.out.println("Enter your choice: ");
             System.out.println("=========================");
-            try {
-                choice = input.nextInt();
-            } catch (Exception e) {
-                input.nextLine();
-                choice = input.nextInt();
-            }
+           while (choice == -1){
+               try {
+                   choice = input.nextInt();
+               } catch (Exception e) {
+                   System.out.println("Nhập lại số đi");
+                   input.nextLine();
+               }
+           }
             switch (choice) {
                 case 1:
                     studentList.add(createStudent());
