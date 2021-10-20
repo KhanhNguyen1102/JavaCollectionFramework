@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ManagerServiceStudent studentList = new ManagerServiceStudent();
-
         int choice = -1;
         showMenu();
         do {
@@ -20,66 +19,64 @@ public class Main {
                 input.nextLine();
                 choice = -1;
             } finally {
-                switch (choice) {
-                    case 1:
-                        studentList.add(createStudent());
-                        studentList.print();
-
-                        break;
-                    case 2:
-                        studentList.print();
-
-                        break;
-                    case 3:
-                        System.out.println("Điền vị trí muốn sửa");
-                        int index1 = input.nextInt();
-                        studentList.updateByID(index1, createStudent());
-                        studentList.print();
-
-                        break;
-                    case 4:
-                        System.out.println("Nhập id học sinh muốn xóa ");
-                        int index2 = input.nextInt();
-                        studentList.deleteByID(index2);
-                        studentList.print();
-
-                        break;
-                    case 5:
-                        System.out.println("Nhập id học sinh muốn tìm ");
-                        input.nextLine();
-                        int idToFind = input.nextInt();
-                        int indexToFind = studentList.findByID(idToFind);
-                        if (indexToFind != -1) {
-                            System.out.println(studentList.getStudentArray().get(indexToFind));
-                        } else System.out.println("Ko tìm thấy");
-                        System.out.println("=========================");
-                        studentList.print();
-
-                        break;
-                    case 6:
-                        studentList.sortMinToMax();
-                        studentList.print();
-
-                        break;
-                    case 7:
-                        studentList.sortMaxToMin();
-                        studentList.print();
-
-                        break;
-                    case 8:
-                        System.out.println("Tổng điểm bằng " + studentList.totalScore());
-
-                        break;
-                    case 0:
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid choice");
-                }
-              showMenu();
+                doChoice(choice, studentList);
+                showMenu();
             }
-        }while (true);
+        } while (true);
     }
-    public static void showMenu(){
+
+
+    public static void doChoice(int choice, ManagerServiceStudent studentList) {
+        Scanner input = new Scanner(System.in);
+        switch (choice) {
+            case 1:
+                studentList.add(createStudent());
+                studentList.print();
+                break;
+            case 2:
+                studentList.print();
+                break;
+            case 3:
+                System.out.println("Điền vị trí muốn sửa");
+                int index1 = input.nextInt();
+                studentList.updateByID(index1, createStudent());
+                studentList.print();
+                break;
+            case 4:
+                System.out.println("Nhập id học sinh muốn xóa ");
+                int index2 = input.nextInt();
+                studentList.deleteByID(index2);
+                studentList.print();
+                break;
+            case 5:
+                System.out.println("Nhập id học sinh muốn tìm ");
+                int idToFind = input.nextInt();
+                int indexToFind = studentList.findByID(idToFind);
+                if (indexToFind != -1) {
+                    System.out.println(studentList.getStudentArray().get(indexToFind));
+                } else System.out.println("Ko tìm thấy");
+                System.out.println("=========================");
+                studentList.print();
+                break;
+            case 6:
+                studentList.sortMinToMax();
+                studentList.print();
+                break;
+            case 7:
+                studentList.sortMaxToMin();
+                studentList.print();
+                break;
+            case 8:
+                System.out.println("Tổng điểm bằng " + studentList.totalScore());
+                break;
+            case 0:
+                System.exit(0);
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+
+    public static void showMenu() {
         System.out.println("Menu");
         System.out.println("1. Thêm học sinh ");
         System.out.println("2. Hiển thị mọi người trong danh sách");
@@ -95,7 +92,7 @@ public class Main {
     }
 
 
-    public static Student createStudent(){
+    public static Student createStudent() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Điền tên của học sinh ");
         String name = scanner.nextLine();
@@ -103,6 +100,6 @@ public class Main {
         int age = scanner.nextInt();
         System.out.println("Điền điểm trung bình của sản phẩm ");
         double score = scanner.nextDouble();
-        return new Student(name,age,score);
+        return new Student(name, age, score);
     }
 }
