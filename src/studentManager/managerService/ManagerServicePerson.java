@@ -17,6 +17,22 @@ public class ManagerServicePerson implements ManagerService<Person>{
         personArray = new ArrayList<>();
     }
 
+    public ArrayList<Person> getPersonArray() {
+        return personArray;
+    }
+
+    public void setPersonArray(ArrayList<Person> personArray) {
+        this.personArray = personArray;
+    }
+
+    public static int getIdOfList() {
+        return idOfList;
+    }
+
+    public static void setIdOfList(int idOfList) {
+        ManagerServicePerson.idOfList = idOfList;
+    }
+
     @Override
     public void print() {
         for (Person person : personArray) {
