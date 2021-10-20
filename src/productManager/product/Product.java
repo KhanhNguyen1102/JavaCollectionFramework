@@ -37,7 +37,9 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-
+//    public int compareTo(Product product) {
+//        return (int)(this.getPrice() - (product.getPrice()));
+//    }
     @Override
     public String toString() {
         return "Product{" +
