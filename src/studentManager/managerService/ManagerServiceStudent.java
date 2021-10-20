@@ -72,19 +72,19 @@ public class ManagerServiceStudent implements ManagerService<Student> {
         }
     }
 
-    @Override
+
     public void sortMinToMax() {
         studentArray.sort((Comparator.comparingDouble(Student::getAverageScore)));
         System.out.println("Đã sắp xếp thành công");
     }
 
-    @Override
+
     public void sortMaxToMin() {
         studentArray.sort((o1, o2) -> Double.compare(o2.getAverageScore(), o1.getAverageScore()));
         System.out.println("Đã sắp xếp thành công !");
     }
 
-    @Override
+
     public double totalScore() {
         double totalscore = 0;
         for (Student student : studentArray) {

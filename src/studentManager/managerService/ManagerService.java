@@ -8,7 +8,5 @@ public interface ManagerService<T> {
     int findByID(int id);
     void deleteByID(int id);
     void updateByID(int id,T t);
-    void sortMinToMax();
-    void sortMaxToMin();
-    double totalScore();
+
 }
