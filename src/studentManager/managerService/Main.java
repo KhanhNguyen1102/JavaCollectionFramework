@@ -11,7 +11,7 @@ public class Main {
 
         int choice = -1;
         Scanner input = new Scanner(System.in);
-        while (true) {
+        while (choice != 0) {
             System.out.println("Menu");
             System.out.println("1. Thêm học sinh ");
             System.out.println("2. Hiển thị mọi người trong danh sách");
@@ -36,21 +36,25 @@ public class Main {
                 case 1:
                     studentList.add(createStudent());
                     studentList.print();
+                    choice = -1;
                     break;
                 case 2:
                     studentList.print();
+                    choice = -1;
                     break;
                 case 3:
                     System.out.println("Điền vị trí muốn sửa");
                     int index1 = input.nextInt();
                     studentList.updateByID(index1,createStudent());
                     studentList.print();
+                    choice = -1;
                     break;
                 case 4:
                     System.out.println("Nhập id học sinh muốn xóa ");
                     int index2 = input.nextInt();
                     studentList.deleteByID(index2);
                     studentList.print();
+                    choice = -1;
                     break;
                 case 5:
                     System.out.println("Nhập id học sinh muốn tìm ");
@@ -62,17 +66,21 @@ public class Main {
                     }else System.out.println("Ko tìm thấy");
                     System.out.println("=========================");
                     studentList.print();
+                    choice = -1;
                     break;
                 case 6:
                     studentList.sortMinToMax();
                     studentList.print();
+                    choice = -1;
                     break;
                 case 7:
                     studentList.sortMaxToMin();
                     studentList.print();
+                    choice = -1;
                     break;
                 case 8:
                     System.out.println("Tổng điểm bằng " + studentList.totalScore() );
+                    choice = -1;
                     break;
                 case 0:
                     System.exit(0);
