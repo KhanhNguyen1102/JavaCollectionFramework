@@ -79,7 +79,7 @@ public class ManagerServiceStudent implements ManagerService<Student> {
     }
 
     @Override
-    public void sortMaxtoMin() {
+    public void sortMaxToMin() {
         studentArray.sort((o1, o2) -> Double.compare(o2.getAverageScore(), o1.getAverageScore()));
         System.out.println("Đã sắp xếp thành công !");
     }

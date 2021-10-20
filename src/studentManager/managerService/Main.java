@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
         ManagerServiceStudent studentList = new ManagerServiceStudent();
 
-        int choice = -1;
+        int choice;
         Scanner input = new Scanner(System.in);
-        while (choice != 0) {
+        while (true) {
             System.out.println("Menu");
             System.out.println("1. Thêm học sinh ");
             System.out.println("2. Hiển thị mọi người trong danh sách");
@@ -32,14 +32,7 @@ public class Main {
             }
             switch (choice) {
                 case 1:
-                    System.out.println("Điền tên của học sinh muốn thêm");
-                    input.nextLine();
-                    String name = input.nextLine();
-                    System.out.println("Điền tuổi của học sinh muốn thêm");
-                    int age = input.nextInt();
-                    System.out.println("Điền điểm trung bình của sản phẩm muốn thêm");
-                    double price = input.nextDouble();
-                    studentList.add(new Student(name,age, price));
+                    studentList.add(createStudent());
                     studentList.print();
                     break;
                 case 2:
@@ -48,14 +41,7 @@ public class Main {
                 case 3:
                     System.out.println("Điền vị trí muốn sửa");
                     int index1 = input.nextInt();
-                    System.out.println("Bạn muốn sửa tên thành ");
-                    input.nextLine();
-                    String name2 = input.nextLine();
-                    System.out.println("Bạn muốn sửa tuổi thành");
-                    int age1 = input.nextInt();
-                    System.out.println("Bạn muốn sửa giá thành");
-                    double price2 = input.nextDouble();
-                    studentList.updateByID(index1,new Student(name2,age1, price2));
+                    studentList.updateByID(index1,createStudent());
                     studentList.print();
                     break;
                 case 4:
@@ -80,7 +66,7 @@ public class Main {
                     studentList.print();
                     break;
                 case 7:
-                    studentList.sortMaxtoMin();
+                    studentList.sortMaxToMin();
                     studentList.print();
                     break;
                 case 8:
@@ -92,5 +78,15 @@ public class Main {
                     System.out.println("No choice!");
             }
         }
+    }
+    public static Student createStudent(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Điền tên của học sinh ");
+        String name = scanner.nextLine();
+        System.out.println("Điền tuổi của học sinh ");
+        int age = scanner.nextInt();
+        System.out.println("Điền điểm trung bình của sản phẩm ");
+        double score = scanner.nextDouble();
+        return new Student(name,age,score);
     }
 }
