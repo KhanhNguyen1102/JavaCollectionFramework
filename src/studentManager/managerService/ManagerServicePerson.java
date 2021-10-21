@@ -5,7 +5,7 @@ import studentManager.model.Student;
 
 import java.util.ArrayList;
 
-public class ManagerServicePerson implements ManagerService<Person>{
+public class ManagerServicePerson implements ManagerService<Person> {
     private ArrayList<Person> personArray;
     private static int idOfList = 0;
 

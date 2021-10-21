@@ -1,6 +1,6 @@
 package studentManager.model;
 
-public class Student extends Person{
+public class Student extends Person {
     private double averageScore;
 
     public Student(String name, int age, double score) {
@@ -15,7 +15,6 @@ public class Student extends Person{
     public Student(String name, int age) {
         super(name, age);
     }
-
 
 
     public double getAverageScore() {

@@ -1,7 +1,7 @@
 package studentManager.model;
 
-public class Teacher extends Person{
-    private String subject ;
+public class Teacher extends Person {
+    private String subject;
 
     public Teacher(String name, int age, String subject) {
         super(name, age);
@@ -15,7 +15,8 @@ public class Teacher extends Person{
     public Teacher(String name, int age) {
         super(name, age);
     }
-    public Teacher(){
+
+    public Teacher() {
         super();
     }
 
